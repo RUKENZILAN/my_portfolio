@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ruken Zilan — Prompt Engineering & Agent Design Instructor</title>
+<meta name="description" content="Ruken Zilan — Prompt Engineering and Agent Design Instructor. 20+ years across R&D, telecom BSS, and applied AI. Publications, experience, certifications." />
+<meta name="author" content="Ruken Zilan" />
+<meta property="og:title" content="Ruken Zilan — Prompt Engineering & Agent Design Instructor" />
+<meta property="og:description" content="Prompt Engineering and Agent Design Instructor. 20+ years across R&D, telecom BSS, and applied AI." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" />
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --fg: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e6e2da;
+    --card: #ffffff;
+    --primary: #b8562a;
+    --primary-fg: #ffffff;
+    --maxw: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: "Inter", system-ui, -apple-system, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+  .display { font-family: "Fraunces", Georgia, serif; font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  em { color: var(--primary); font-style: italic; }
+  .muted { color: var(--muted); }
+
+  /* Header */
+  header.site { border-bottom: 1px solid var(--border); }
+  header.site .row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; padding: 1.25rem 0; }
+  header.site .brand { font-family: "Fraunces", serif; font-size: 1.5rem; }
+  header.site nav { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.9rem; }
+  header.site nav a { color: var(--muted); }
+  header.site nav a:hover { color: var(--fg); text-decoration: none; }
+
+  /* Sections */
+  section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+  section h2.section-title { font-family: "Fraunces", serif; font-size: 2.25rem; font-weight: 400; margin: 0 0 2rem; letter-spacing: -0.02em; }
+
+  /* Hero */
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); margin: 0.5rem 0 0; }
+  .hero .lead { max-width: 640px; font-size: 1.125rem; color: var(--muted); margin-top: 1.5rem; }
+  .hero .lead b { color: var(--fg); font-weight: 500; }
+  .hero .btns { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 999px; font-size: 0.9rem; font-weight: 500; border: 1px solid var(--border); }
+  .btn.primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+  .btn.primary:hover { opacity: 0.9; text-decoration: none; }
+  .btn:hover { background: #f2ede3; text-decoration: none; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  @media (min-width: 768px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat .n { font-family: "Fraunces", serif; font-size: 2.5rem; color: var(--primary); line-height: 1; }
+  .stat .l { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
+
+  /* Grids */
+  .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 768px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+  .card { border: 1px solid var(--border); background: var(--card); border-radius: 0.5rem; padding: 2rem; }
+  .card h3 { margin: 0 0 0.5rem; font-family: "Fraunces", serif; font-weight: 400; font-size: 1.5rem; }
+
+  /* Experience list */
+  .role { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; border-top: 1px solid var(--border); }
+  @media (min-width: 768px) { .role { grid-template-columns: 220px 1fr; gap: 2rem; } }
+  .role .meta { color: var(--muted); font-size: 0.9rem; }
+  .role h3 { margin: 0; font-family: "Fraunces", serif; font-weight: 400; font-size: 1.5rem; }
+  .role .org { color: var(--primary); font-size: 0.9rem; margin: 0.25rem 0 1rem; }
+  .role ul { margin: 0; padding-left: 1.25rem; }
+  .role li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+  /* Pubs */
+  .pub { display: grid; grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem 0; border-top: 1px solid var(--border); }
+  @media (min-width: 768px) { .pub { grid-template-columns: 100px 1fr; gap: 1.5rem; } }
+  .pub .year { color: var(--muted); font-size: 0.9rem; }
+  .pub .title { font-weight: 500; }
+  .pub .authors, .pub .venue { color: var(--muted); font-size: 0.9rem; margin: 0.25rem 0 0; }
+  .pub .venue { font-style: italic; }
+
+  /* Certs */
+  .cert-group { margin-bottom: 3rem; }
+  .cert-group h3 { font-family: "Fraunces", serif; font-weight: 400; font-size: 1.5rem; margin: 0 0 1rem; }
+  .cert { display: grid; grid-template-columns: 1fr; gap: 0.25rem; padding: 0.9rem 0; border-top: 1px solid var(--border); }
+  .cert:last-child { border-bottom: 1px solid var(--border); }
+  @media (min-width: 768px) { .cert { grid-template-columns: 1fr 1fr auto; gap: 1rem; align-items: baseline; } }
+  .cert .issuer, .cert .date { color: var(--muted); font-size: 0.9rem; }
+  .cert .date { text-align: left; }
+  @media (min-width: 768px) { .cert .date { text-align: right; } }
+
+  /* Footer */
+  footer.site { padding: 2rem 0; }
+  footer.site .row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.9rem; }
+  footer.site a { color: var(--muted); }
+  footer.site a:hover { color: var(--fg); }
+
+  h2.big { font-family: "Fraunces", serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); margin: 0.5rem 0 1.5rem; letter-spacing: -0.02em; line-height: 1.1; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container row">
+    <a class="brand" href="#top">Ruken Zilan</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Portfolio · 2026</p>
+      <h1 class="display">Building AI products<br />with <em>rigor</em>,<br />shipping with intent.</h1>
+      <p class="lead"><b>Ruken Zilan</b> — Prompt Engineering and Agent Design Instructor, interested in AI-based developments.</p>
+      <div class="btns">
+        <a class="btn primary" href="#experience">See experience</a>
+        <a class="btn" href="#research">Read publications</a>
+      </div>
+
+      <div class="stats" style="margin-top:3.5rem;">
+        <div class="stat"><div class="n">20+</div><div class="l">Years in R&amp;D &amp; product</div></div>
+        <div class="stat"><div class="n">85%</div><div class="l">Efficiency gain, AI docs automation</div></div>
+        <div class="stat"><div class="n">6,000+</div><div class="l">Interactive BSS pages delivered</div></div>
+        <div class="stat"><div class="n">€1.355M</div><div class="l">EU funding secured</div></div>
+      </div>
+
+      <div class="grid-3" style="margin-top:3.5rem;">
+        <article><h3 class="display" style="font-size:1.5rem;margin:0 0 .5rem;">AI Product Management</h3><p class="muted" style="font-size:.95rem;">Product vision, MVP scoping, roadmap definition, and cross-functional delivery. Workflow orchestration with n8n, Make, and Antigravity.</p></article>
+        <article><h3 class="display" style="font-size:1.5rem;margin:0 0 .5rem;">AI Strategy &amp; Transformation</h3><p class="muted" style="font-size:.95rem;">Enterprise AI adoption for documentation, efficiency, and scale. Responsible-AI governance, evaluation criteria, and prompt-engineering pipelines.</p></article>
+        <article><h3 class="display" style="font-size:1.5rem;margin:0 0 .5rem;">Applied Research</h3><p class="muted" style="font-size:.95rem;">Peer-reviewed publications in IEEE, ACM, Springer, and LNCS spanning WSNs, computer architecture, and applied LLM systems.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h2 class="big">A metrics-driven product mind, shaped by two decades of research.</h2>
+      <div class="grid-2">
+        <div>
+          <p>I define AI product visions, scope MVPs, and lead cross-functional teams that build and scale workflow-automation pipelines. My work spans R&amp;D, telecom BSS environments, and enterprise software — capturing user requirements and transforming complex technical architectures into market-ready solutions.</p>
+          <p>My path started in physics and computer engineering, moved through high-performance computing research at the Barcelona Supercomputing Center, and recently lives at the intersection of applied AI, product strategy, and responsible-AI practice.</p>
+          <p>Today I lecture on Prompt Engineering at Atılım University, mentor undergraduate and graduate researchers, and write about the practical patterns behind LLM-based agent systems.</p>
+        </div>
+        <aside>
+          <p class="eyebrow">Core expertise</p>
+          <ul style="margin-top:.5rem;padding-left:1.25rem;">
+            <li>AI product strategy &amp; roadmap</li>
+            <li>MVP scoping &amp; use-case prioritization</li>
+            <li>Enterprise AI &amp; workflow orchestration</li>
+            <li>Generative AI &amp; prompt engineering</li>
+            <li>Responsible-AI governance</li>
+            <li>Agile, cross-functional leadership</li>
+          </ul>
+          <p class="eyebrow" style="margin-top:2rem;">Tools</p>
+          <p style="font-size:.95rem;">Jira, Confluence, Postman, Swagger · R, Python, n8n, Make, Antigravity · SQL, Unix</p>
+          <p class="muted" style="font-style:italic;font-size:.9rem;">…and a soft spot for Fortran and BASIC — where it all started.</p>
+
+          <p class="eyebrow" style="margin-top:2rem;">Languages</p>
+          <p style="font-size:.95rem;">Turkish (native), English (C1), Spanish (B1)</p>
+          <p class="eyebrow" style="margin-top:2rem;">Based in</p>
+          <p style="font-size:.95rem;">Çankaya, Ankara · Türkiye</p>
+        </aside>
+      </div>
+
+      <h3 class="display" style="font-size:1.75rem;margin-top:3rem;">Education</h3>
+      <div class="role"><div class="meta">2007 — 2019</div><div><h3>Advanced Postgraduate Research, Computer Architecture</h3><div class="org">UPC Barcelona Tech, Spain</div><p style="margin:0;font-size:.95rem;">Thesis subjects: IoT, Visual Wireless Sensor Networks, next-generation processor modeling.</p></div></div>
+      <div class="role"><div class="meta">2005 — 2007</div><div><h3>MSc in Computer Engineering</h3><div class="org">TOBB University of Economics and Technology, Ankara</div><p style="margin:0;font-size:.95rem;">Thesis: Quality of Service and Energy Consumption in Wireless Sensor Networks.</p></div></div>
+      <div class="role"><div class="meta">1999 — 2001</div><div><h3>MSc in Physics</h3><div class="org">Middle East Technical University, Ankara</div></div></div>
+      <div class="role"><div class="meta">1993 — 1997</div><div><h3>BSc</h3><div class="org">Gazi University, Ankara</div></div></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="eyebrow">Experience</p>
+      <h2 class="big">Twenty years of building — from sensor networks to LLM systems.</h2>
+
+      <div class="role"><div class="meta"><div>Sep 2025 — Jul 2026</div><div>Ankara</div></div><div><h3>Lecturer, Prompt Engineering</h3><div class="org">Atılım University · Department of Software Engineering</div><ul>
+        <li>Designed and delivered a full undergraduate course on Prompt Engineering, covering generative AI concepts, design patterns, and evaluation methods.</li>
+        <li>Bridged academic foundations with industry AI product practices through hands-on assignments and workflow-automation projects.</li>
+        <li>Introduced prompt testing and evaluation criteria aligned with reliability and responsible-AI standards.</li>
+        <li>Supervised undergraduate research teams, resulting in two co-authored papers accepted at IEEE conferences on prompt engineering and AI automation.</li>
+        <li>Served as an official jury member for the Young Brains Innovative Ideas 2026 Project Competition, organized by the Turkish Informatics Association (TBD).</li>
+        <li>Developed and delivered workshops on Prompt Engineering for TBD women's activities and Atılım University engineering students.</li>
+      </ul></div></div>
+
+      <div class="role"><div class="meta"><div>Sep 2021 — Dec 2025</div><div>Istanbul</div></div><div><h3>Team Lead — AI-Enabled Documentation Systems &amp; Training</h3><div class="org">DNext Technology / PiA Group</div><ul>
+        <li>Spearheaded the product strategy and delivery of AI-enabled documentation automation systems, achieving an 85% increase in operational efficiency.</li>
+        <li>Owned the end-to-end product lifecycle for global telecom BSS documentation platforms, scaling content delivery across 6,000+ interactive pages for international stakeholders including Vodafone.</li>
+        <li>Architected detailed process workflows and system diagrams to integrate LLMs and prompt engineering into legacy documentation lifecycles.</li>
+        <li>Led the design and delivery of remote training programs via Moodle for international Vodafone teams and internal departments.</li>
+        <li>Authored a technical paper on AI-driven documentation automation, published by IEEE, validating the solution's innovation.</li>
+        <li>Defined standards and human-in-the-loop controls to maintain the quality and accuracy of AI-generated technical outputs.</li>
+      </ul></div></div>
+
+      <div class="role"><div class="meta"><div>May 2018 — Sep 2021</div><div>Remote</div></div><div><h3>Independent R&amp;D Consultant</h3><div class="org">Freelance</div><ul>
+        <li>Validated ML product concepts and technical feasibility for startups and research teams, reducing R&amp;D risk and accelerating time-to-market.</li>
+        <li>Architected technical product scopes and innovation roadmaps, defining the transition from AI research to scalable, production-ready systems.</li>
+        <li>Developed white papers and technical concept documentation to secure funding and establish strategic product positioning.</li>
+        <li>Bridged technical complexity and business value by translating emerging AI capabilities into actionable product requirements.</li>
+      </ul></div></div>
+
+      <div class="role"><div class="meta"><div>Dec 2017 — Mar 2018</div><div>Ankara</div></div><div><h3>R&amp;D and Innovative Technology Coordinator</h3><div class="org">BİTES Defense &amp; Aerospace Technologies</div><ul>
+        <li>Accelerated the productization of emerging technologies — AI, sensor-based systems, and AR/VR — for mission-critical military applications.</li>
+        <li>Engineered early-stage product strategies aligning R&amp;D outputs with defense-grade requirements and operational mission constraints.</li>
+        <li>Conducted technical audits of safety-critical systems for aerospace and military environments.</li>
+        <li>Streamlined collaboration between industry, engineering units, and academic partners to bridge advanced research and defense-ready solutions.</li>
+      </ul></div></div>
+
+      <div class="role"><div class="meta"><div>Sep 2016 — Nov 2017</div><div>Istanbul</div></div><div><h3>Research Executive</h3><div class="org">SC3 / Ali Electronics</div><ul>
+        <li>Directed R&amp;D initiatives across HPC, data centers, IoT, and AI, bridging technical research with product-oriented outcomes.</li>
+        <li>Secured €1.355M in EU funding as lead author and manager of a Euripides project on Smart Power Distribution and Management in Data Centers.</li>
+        <li>Orchestrated multi-stakeholder consortia across universities, national research teams, and international corporate collaborators.</li>
+        <li>Led the full project lifecycle for national and EU-funded programs, including market analysis, patent preparation, and technical documentation.</li>
+      </ul></div></div>
+
+      <div class="role"><div class="meta"><div>Jun 2012 — Sep 2016</div><div>Remote</div></div><div><h3>Science &amp; Technology Writer &amp; Editorial Consultant</h3><div class="org">Freelance</div><ul>
+        <li>Technical reviewer and academic referee for national research project submissions.</li>
+        <li>Authored SEO-optimized technical content, white papers, and editorial pieces for specialized magazines and technology firms.</li>
+        <li>Developed high-level technology briefings translating complex R&amp;D concepts into accessible, rigorous documentation.</li>
+      </ul></div></div>
+
+      <div class="role"><div class="meta"><div>Oct 2008 — Apr 2012</div><div>Barcelona, Spain</div></div><div><h3>Researcher</h3><div class="org">Barcelona Supercomputing Center</div><ul>
+        <li>Cisco Systems Scholar: selected for a competitive scholarship to lead research on high-performance computing systems.</li>
+        <li>Authored European Commission FP7 project proposals focused on fiber interconnects and high-tech optical networking.</li>
+        <li>Developed abstraction methodologies for next-generation multicore architectures, improving scalability and efficiency.</li>
+        <li>Partnered with industry leaders and academic institutions to deliver research outputs for large-scale computing environments.</li>
+      </ul></div></div>
+
+      <p class="muted" style="margin-top:2rem;font-size:.9rem;">Earlier roles include Graduate Research Assistant, Teaching and Research Assistant, and IT Specialist supporting large-scale digital-transformation initiatives in the public sector.</p>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <p class="eyebrow">Research &amp; Publications</p>
+      <h2 class="big">From wireless sensor networks to large language models.</h2>
+      <p class="muted" style="max-width:640px;">Peer-reviewed publications across IEEE, ACM, Springer, and LNCS on wireless sensor networks, data optimization, security, computer architecture, automation, and applied LLM systems.</p>
+
+      <div class="grid-2" style="margin-top:2rem;">
+        <div class="card"><p class="eyebrow">Published book · 2026</p><h3 style="margin-top:.5rem;">Designing Agents Handbook</h3><p class="muted" style="font-size:.9rem;">Practical Patterns for LLM-Based Agent Systems</p></div>
+        <div class="card"><p class="eyebrow">Forthcoming · 2026</p><h3 style="margin-top:.5rem;">SPEAK GENERATIVE AI</h3><p class="muted" style="font-size:.9rem;">The Essential Guide to Prompt Engineering for Non-Coders</p></div>
+      </div>
+
+      <h3 class="display" style="font-size:1.75rem;margin-top:3rem;">Research themes</h3>
+      <div class="grid-2">
+        <article><h4 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.25rem;margin:0 0 .5rem;">Applied LLMs &amp; Prompt Engineering</h4><p class="muted" style="font-size:.95rem;">Comparative studies of Chain-of-Thought vs. few-shot prompting for code generation, LLM reasoning on riddles, and LLM-driven documentation automation with n8n across GitHub, Jira, and Confluence.</p></article>
+        <article><h4 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.25rem;margin:0 0 .5rem;">Stealth WSNs &amp; Energy-Privacy Modeling</h4><p class="muted" style="font-size:.95rem;">A Linear Programming framework modeling explicit trade-offs between contextual privacy, multi-level data compression, and energy dissipation in privacy-preserving sensor networks.</p></article>
+        <article><h4 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.25rem;margin:0 0 .5rem;">Next-Generation Architecture Simulation</h4><p class="muted" style="font-size:.95rem;">Seven years at Barcelona Supercomputing Center modeling multicore, multithreaded CPUs for internet traffic. Co-developed a queuing-theory-based analytical tool for rapid design trade-off evaluations.</p></article>
+        <article><h4 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.25rem;margin:0 0 .5rem;">QoS in Wireless Sensor Networks</h4><p class="muted" style="font-size:.95rem;">Master's thesis: a grid-based sensor scheduling topology using information-theory principles, delivering quantifiable lifetime improvements over probabilistic approaches.</p></article>
+      </div>
+
+      <h3 class="display" style="font-size:1.75rem;margin-top:3rem;">Selected publications</h3>
+      <div class="pub"><div class="year">2026</div><div><div class="title">Chain-of-Thought vs. Few-Shot: A Comparative Study of Prompting Strategies for Code Generation</div><p class="authors">K. Nobakhtfar, K. Çakılcı, and R. Zilan</p><p class="venue">Proc. IEEE IISEC 2026 Conference</p></div></div>
+      <div class="pub"><div class="year">2026</div><div><div class="title">Automating Software Documentation with n8n and Large Language Models: A GitHub and Jira to Confluence Case Study</div><p class="authors">H. Toprak and R. Zilan</p><p class="venue">Proc. IEEE IISEC 2026 Conference</p></div></div>
+      <div class="pub"><div class="year">2026</div><div><div class="title">LLMs' Challenge with Riddles: A Comparative Chain-of-Thought Reasoning Study</div><p class="authors">Y. Çetin, Y. A. S. Elkmeshi, M. Satti, and R. Zilan</p><p class="venue">Proc. IEEE IISEC 2026 Conference</p></div></div>
+      <div class="pub"><div class="year">2015</div><div><div class="title">Optimal Data Compression for Lifetime Maximization in Wireless Sensor Networks Operating in Stealth Mode</div><p class="authors">D. Incebacak, R. Zilan, B. Tavli, J.M. Barceló Ordinas, J. Garcia Vidal</p><p class="venue">Ad Hoc Networks Journal, Vol. 24, Part B, pp. 134–147</p></div></div>
+      <div class="pub"><div class="year">2013</div><div><div class="title">Prolonging Wireless Sensor Network Lifetime in Stealth Mode through Intelligent Data Compression</div><p class="authors">R. Zilan, T.H. Ozdemir, B. Tavli, J.M. Barceló-Ordinas</p><p class="venue">Proc. ACM Symposium on Performance Evaluation of Wireless Ad Hoc, Sensor, and Ubiquitous Networks, pp. 105–112</p></div></div>
+      <div class="pub"><div class="year">2011</div><div><div class="title">A Survey of Visual Sensor Network Platforms</div><p class="authors">B. Tavli, K. Bicakci, R. Zilan, J.M. Barceló-Ordinas</p><p class="venue">Multimedia Tools and Applications Journal, Vol. 60, Issue 3, pp. 689–726</p></div></div>
+      <div class="pub"><div class="year">2011</div><div><div class="title">An Abstraction Methodology for the Evaluation of Multi-core Multi-threaded Architectures</div><p class="authors">R. Zilan, J. Verdu, J. Garcia Vidal, M. Nemirovsky, R. Milito, M. Valero</p><p class="venue">Proc. 19th IEEE International Symposium on MASCOTS, pp. 478–481, Singapore</p></div></div>
+      <div class="pub"><div class="year">2009</div><div><div class="title">The Future of Security in Wireless Multimedia Sensor Networks</div><p class="authors">M. Guerrero-Zapata, R. Zilan, J.M. Barceló-Ordinas, K. Bicakci, B. Tavli</p><p class="venue">Telecommunications System Journal, Vol. 45, Issue 1, pp. 77–91, Springer</p></div></div>
+      <div class="pub"><div class="year">2009</div><div><div class="title">Internet Traffic and the Behavior of Processing Workloads</div><p class="authors">R. Zilan, J. Verdu, J. Garcia, M. Nemirovsky, M. Valero</p><p class="venue">Poster Abstracts Proc. 5th International Summer School on Advanced Computer Architecture and Compilation for Embedded Systems, pp. 269–272, Terrassa, Spain</p></div></div>
+      <div class="pub"><div class="year">2008</div><div><div class="title">Image Recognition Traffic Patterns for Wireless Multimedia Sensor Networks</div><p class="authors">R. Zilan, J.M. Barceló-Ordinas, B. Tavli</p><p class="venue">Fourth International Workshop on Wireless and Mobility (EuroFGI), pp. 49–59, Barcelona (LNCS 5122)</p></div></div>
+      <div class="pub"><div class="year">2007</div><div><div class="title">Use of Entropy to Control Coverage and Energy Dissipation in Wireless Sensor Networks</div><p class="authors">R. Zilan, Y.M. Erten</p><p class="venue">22nd International Symposium on Computer and Information Sciences (ISCIS 2007), pp. 1–6, IEEE Xplore, METU, Ankara</p></div></div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <p class="eyebrow">Certifications</p>
+      <h2 class="big">A running record of study — from cryptography to Chain-of-Thought.</h2>
+
+      <div class="cert-group">
+        <h3>Artificial Intelligence, LLMs &amp; Applied AI</h3>
+        <div class="cert"><span>Corporate Finance and AI</span><span class="issuer">LABA International Training Platform</span><span class="date">Jun 2026</span></div>
+        <div class="cert"><span>Advanced Prompt Engineering Techniques</span><span class="issuer">LinkedIn Learning</span><span class="date">Jul 2025</span></div>
+        <div class="cert"><span>AI in Practice: Applying AI (AIIP2x)</span><span class="issuer">Delft University of Technology</span><span class="date">Dec 2023</span></div>
+        <div class="cert"><span>Elements of AI: Introduction to AI</span><span class="issuer">University of Helsinki</span><span class="date">Jul 2022</span></div>
+        <div class="cert"><span>Introduction to Machine Learning</span><span class="issuer">Global AI Hub</span><span class="date">Jul 2023</span></div>
+        <div class="cert"><span>Python for Machine Learning</span><span class="issuer">Global AI Hub</span><span class="date">Aug 2022</span></div>
+        <div class="cert"><span>Big Data, Artificial Intelligence, and Ethics</span><span class="issuer">Coursera</span><span class="date">Sep 2023</span></div>
+        <div class="cert"><span>Ethics in the Age of Generative AI</span><span class="issuer">LinkedIn Learning</span><span class="date">Sep 2023</span></div>
+      </div>
+
+      <div class="cert-group">
+        <h3>AI Product, Strategy &amp; Technology Leadership</h3>
+        <div class="cert"><span>AI Product Management</span><span class="issuer">Duke University</span><span class="date">Mar 2024</span></div>
+        <div class="cert"><span>Managing Machine Learning Projects</span><span class="issuer">Duke University</span><span class="date">Feb 2024</span></div>
+        <div class="cert"><span>Machine Learning Foundations for Product Managers</span><span class="issuer">Duke University</span><span class="date">Jan 2024</span></div>
+        <div class="cert"><span>Applying AI as a Tech Leader</span><span class="issuer">LinkedIn Learning</span><span class="date">Sep 2024</span></div>
+        <div class="cert"><span>The 7 Habits of Highly Effective People</span><span class="issuer">FranklinCovey</span><span class="date">Aug 2024</span></div>
+        <div class="cert"><span>Artificial Intelligence and Business Strategy</span><span class="issuer">LinkedIn Learning</span><span class="date">Jul 2024</span></div>
+      </div>
+
+      <div class="cert-group">
+        <h3>R&amp;D, Platforms, APIs &amp; Enterprise Architecture</h3>
+        <div class="cert"><span>Artificial Intelligence &amp; Data Manager</span><span class="issuer">TM Forum</span><span class="date">Sep 2021</span></div>
+        <div class="cert"><span>AI Foundation Level</span><span class="issuer">TM Forum</span><span class="date">Sep 2021</span></div>
+        <div class="cert"><span>AI Fundamentals</span><span class="issuer">TM Forum</span><span class="date">Sep 2021</span></div>
+        <div class="cert"><span>Platform Development Manager</span><span class="issuer">TM Forum</span><span class="date">Oct 2021</span></div>
+        <div class="cert"><span>Frameworx Transformation Manager</span><span class="issuer">TM Forum</span><span class="date">Oct 2021</span></div>
+        <div class="cert"><span>Application Framework (TAM) — Foundation Level</span><span class="issuer">TM Forum</span><span class="date">Oct 2021</span></div>
+        <div class="cert"><span>Open Digital Architecture — Foundation Level</span><span class="issuer">TM Forum</span><span class="date">Sep 2021</span></div>
+        <div class="cert"><span>TM Forum Open API Fundamentals</span><span class="issuer">TM Forum</span><span class="date">Sep 2021</span></div>
+      </div>
+
+      <div class="cert-group">
+        <h3>Software, Data &amp; Research Foundations</h3>
+        <div class="cert"><span>Using Python to Access Web Data</span><span class="issuer">Coursera</span><span class="date">Feb 2020</span></div>
+        <div class="cert"><span>Python Data Structures</span><span class="issuer">Coursera</span><span class="date">Oct 2019</span></div>
+        <div class="cert"><span>Exploratory Data Analysis</span><span class="issuer">Coursera</span><span class="date">Mar 2016</span></div>
+        <div class="cert"><span>Cryptography</span><span class="issuer">Coursera</span><span class="date">Apr 2019</span></div>
+      </div>
+
+      <div class="cert-group">
+        <h3>IoT, Systems &amp; Innovation</h3>
+        <div class="cert"><span>IoT Foundations: Device Management</span><span class="issuer">LinkedIn Learning</span><span class="date">Nov 2017</span></div>
+        <div class="cert"><span>IoT Foundations: Low-Power Wireless Networking</span><span class="issuer">LinkedIn Learning</span><span class="date">Nov 2017</span></div>
+        <div class="cert"><span>Adizes Systematic Innovation (SI) Master Class</span><span class="issuer">Bosphorus University</span><span class="date">Oct 2016</span></div>
+      </div>
+
+      <div class="cert-group">
+        <h3>Education &amp; Technology</h3>
+        <div class="cert"><span>Pedagogical Proficiency Certificate</span><span class="issuer">Gazi University</span><span class="date">Jun 1997</span></div>
+        <div class="cert"><span>Certificate of Information Technologies (IDEA)</span><span class="issuer">Middle East Technical University</span><span class="date">Jul 2004</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom:none;">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h2 class="big">Let's build something considered.</h2>
+      <p class="muted" style="max-width:640px;">Based in Çankaya, Ankara. Open to conversations on AI product strategy, applied LLM systems, and guest lectures. The best way to reach me is on LinkedIn.</p>
+      <div class="grid-2" style="margin-top:2rem;">
+        <a class="card" href="https://www.linkedin.com/in/rukenzilan" target="_blank" rel="noopener"><p class="eyebrow">Primary</p><h3 style="margin-top:.5rem;">LinkedIn</h3><p class="muted" style="font-size:.9rem;">linkedin.com/in/rukenzilan</p><p style="color:var(--primary);font-size:.9rem;margin-top:1.5rem;">Open profile →</p></a>
+        <a class="card" href="https://www.rukenzilan.site" target="_blank" rel="noopener"><p class="eyebrow">Personal site</p><h3 style="margin-top:.5rem;">rukenzilan.site</h3><p class="muted" style="font-size:.9rem;">Long-form writing and updates</p><p style="color:var(--primary);font-size:.9rem;margin-top:1.5rem;">Visit site →</p></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container row">
+    <span>© <span id="y"></span> Ruken Zilan. Ankara, Türkiye.</span>
+    <span><a href="https://www.linkedin.com/in/rukenzilan" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://www.rukenzilan.site" target="_blank" rel="noopener">rukenzilan.site</a></span>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
