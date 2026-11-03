@@ -2,7 +2,8 @@
 
 > A personal portfolio website showcasing experience, research, certifications, and contact information.
 
-**Live site:** [rukenzilan.github.io/my_portfolio](https://rukenzilan.github.io/my_portfolio/)
+**Live site:** https://myportfolio-gz2f.vercel.app/
+
 
 ## Sections
 
